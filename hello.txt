@@ -1,0 +1,5 @@
+I am writing this file as my first Github project
+I am learning devops and AWS
+My goal is to get into devops technology and get job.
+
+
