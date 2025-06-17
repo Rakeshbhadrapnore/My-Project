@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    environment {
+        PROJECT_NAME = 'Sample Jenkins Project'
+    }
+
+    stages {
+        stage('Initialize') {
+            steps {
+                echo "Starting pipeline for ${env.PROJECT_NAME}"
+            }
+        }
+
+        stage('Checkout Code') {
+            steps {
+                echo 'Cloning repository...'
+                git 'https://github.com/Rakeshbhadrapnore/My-Project.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                sh 'echo "Simulated build command running..."'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'echo "All tests passed!"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                sh 'echo "Application deployed successfully."'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully ✅'
+        }
+        failure {
+            echo 'Pipeline failed ❌'
+        }
+    }
+}
+
